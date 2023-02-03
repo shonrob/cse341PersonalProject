@@ -3,11 +3,9 @@ const mongoose = require('mongoose');
 const Router = require('./routes');
 const dbConfig = require('./db/connect');
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
-// app.use('/', require('./routes/index'));
 app.use(express.json());
 app.use(Router);
 
