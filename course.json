@@ -1,0 +1,39 @@
+{
+    "course1": {
+        "subject": "Math",
+        "description": "Algebra",
+        "teacherName":  "Mr. Roofus",
+        "currentGrade": "A-",
+        "assignment": "Solving equations and inequalities", 
+        "dueDate": "11/11/2024",
+        "favorite": false
+    },
+    "course2": {
+        "subject": "Spelling",
+        "description": "Prep for Spelling Bee",
+        "teacherName":  "Mrs. Cranks",
+        "currentGrade": "A-",
+        "assignment": "Lesson 15", 
+        "dueDate": "11/11/2024",
+        "favorite": true
+    },
+    "course3": {
+        "subject": "Science",
+        "description": "Study of Plants",
+        "teacherName":  "Mr. Brown",
+        "currentGrade": "B+",
+        "assignment": "What is botany?", 
+        "dueDate": "11/11/2024",
+        "favorite": true
+    },
+    "course4": {
+        "subject": "History",
+        "description": "American",
+        "teacherName":  "Mrs. Potter",
+        "currentGrade": "A-",
+        "assignment": "Discovering the History of Native American Tribes", 
+        "dueDate": "11/11/2024",
+        "favorite": true
+    }
+
+}
