@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema(
     {
-        studentId: Number,
         firstName: String,
         lastName: String,
         enrolled: Boolean
@@ -13,4 +12,20 @@ const studentSchema = new mongoose.Schema(
 
 const students = mongoose.model("students", studentSchema);
 
-module.exports = students;
+const courseSchema = new mongoose.Schema(
+    {
+        courseId: Number,
+        subject: String,
+        description: String,
+        teacherName: String,
+        currentGrade: String,
+        assignment: String,
+        dueDate: Date
+    },
+    { timestamps: true}
+
+);
+
+const courses = mongoose.model("courses", courseSchema);
+
+module.exports = students, courses;

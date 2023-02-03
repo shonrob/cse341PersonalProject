@@ -85,7 +85,6 @@ module.exports = {
 
 // // Create Student 
 // const pupil = new Pupil({
-//     student_id: req.body.student_id,
 //     firstName: req.body.firstName,
 //     lastName: req.body.lastName,
 //     enrolled: req.body.enrolled
@@ -107,7 +106,6 @@ module.exports = {
 //         Pupil.find(
 //         {},
 //         {
-//             student_id: 1,
 //             firstName: 1,
 //             lastName: 1,
 //             enrolled: 1,

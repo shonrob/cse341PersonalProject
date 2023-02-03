@@ -84,13 +84,14 @@ module.exports = {
 
 // // create course 
 // const course = new Course({
-//     course_id: req.body.course_id,
 //     subject: req.body.subject,
 //     description: req.body.description,
 //     teacherName:  req.body.teacherName,
 //     currentGrade: req.body.currentGrade,
-//     notes: req.body.notes, 
-//     dueDate: req.body.dueDate
+//     assignment: req.body.notes, 
+//     dueDate: req.body.dueDate,
+//     favorite: req.body.favorite 
+
 // });
 // course.save()    
 // }
