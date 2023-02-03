@@ -1,0 +1,32 @@
+{
+    "student1": {
+        "firstName": "Suzie",
+        "lastName": "Rice",
+        "enrolled": true
+    },
+    "student2": {
+        "firstName": "Joni",
+        "lastName": "Roni",
+        "enrolled": true
+    },
+    "student3": {
+        "firstName": "Kenzie",
+        "lastName": "Anderson",
+        "enrolled": true
+    },
+    "student4": {
+        "firstName": "Paul",
+        "lastName": "Jones",
+        "enrolled": true
+    },
+    "student5": {
+        "firstName": "Zach",
+        "lastName": "Mitchell",
+        "enrolled": true
+    },
+    "student6": {
+        "firstName": "Zen",
+        "lastName": "Powers",
+        "enrolled": true
+    }
+}
