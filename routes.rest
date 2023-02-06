@@ -34,7 +34,7 @@ POST http://localhost:3000/student HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Molly",
-    "lastName": "Bond",
+    "firstName": "Frank",
+    "lastName": "Case",
     "enrolled": true
 }
