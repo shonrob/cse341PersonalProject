@@ -19,7 +19,7 @@ const getStudentById = async (request, response) => {
     console.log(studentId);
     console.log(request.params.id);
     try {
-        const result = await student.find({_id: studentId});
+        const result = await Student.find({_id: studentId});
         response.setHeader("Content-Type", "application/json")
         response.status(200).json(result);
     } catch (error) {
@@ -35,16 +35,13 @@ const createStudent = async (req, res, next) => {
 
         try {
             await student.save();
-            // console.log("hello");  
+            return res.status(201).json(student);
             console.log(student);         
         } catch (error) {
             setHeaders(res, contentText);
             res.status(402).json(error);
             return;
-        }
-
-        setHeaders(res);
-        res.status(201).json(student);    
+        }  
 
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")

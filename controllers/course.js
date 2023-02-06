@@ -16,6 +16,7 @@ async function getAllCourses (request, response) {
 }
 
 const getCourseById = async (request, response) => {
+    console.log(request.params.id);
     const courseId = new ObjectId(request.params.id);
     console.log(courseId);
     console.log(request.params.id);
