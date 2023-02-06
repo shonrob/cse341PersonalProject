@@ -1,0 +1,40 @@
+@courseId = 63dca1646fa9e321c98401c0
+
+@studentId = 63dca3466fa9e321c98401c3
+###
+GET http://localhost:3000
+
+###
+GET http://localhost:3000/courses
+
+###
+GET http://localhost:3000/course/@{{courseId}}
+
+###
+GET http://localhost:3000/students
+
+###
+GET http://localhost:3000/student/@{{studentId}}
+
+###
+POST http://localhost:3000/course HTTP/1.1
+Content-Type: application/json
+
+{
+    "subject": "Guitar Basics", 
+    "description": "Learning the foundation of Guitars",
+    "teacherName": "Mr. Pete",
+    "currentGrade": "C",
+    "assignment": "Guitar structure",
+    "dueDate": "01-15-2025"
+}
+
+### 
+POST http://localhost:3000/student HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Molly",
+    "lastName": "Bond",
+    "enrolled": true
+}

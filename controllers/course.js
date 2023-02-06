@@ -1,68 +1,84 @@
-const db = require('../models/index)');
-const course = db.courses
+const { default: mongoose } = require('mongoose');
+const { create } = require('../models/course.js');
+// const {ObjectId} = require('bson');
+const ObjectId = require('mongoose').Types.ObjectId;
 
-const { ObjectID } = require('bson');
-const ObjectID = require('mongodb').ObjectId;
+
+const Course = require('../models/course.js');
+
 
 async function getAllCourses (request, response) {
-    const result = await student.getDbI().db("homework").collection('course').find();
+    const result = await Course.find();
+    
+    response.setHeader("Content-Type", "application/json");
+    response.status(200).json(result);
 
-    result.toArray().then(list => {
-        response.setHeader("Content-Type", "application/json");
-        response.status(200).json(list);
-    });
 }
 
 const getCourseById = async (request, response) => {
-    const studentId = new ObjectId(request.params.id);
-//     // getting the information from the mongo db site 
-    const result = await mongodb.getDb().db("homework").collection("course").find({ _id: courseId});
-    
-
-    result.toArray().then(list => {
+    const courseId = new ObjectId(request.params.id);
+    console.log(courseId);
+    console.log(request.params.id);
+    try {
+        const result = await Course.find({_id: courseId});
         response.setHeader("Content-Type", "application/json")
-        response.status(200).json(list);
-    });
-
-};
-
-// a function that will use POST 
-async function createCourse (req, res, next) {
-    console.log(req.body);
-    const response = await mongodb.getDb().db("homework").collection("course").insertOne(req.body);
-    setHeaders(res);
-    if (response.acknowledged) {
-        res.status(201).json(response);    
-    } else {
-        res.status(500).json(response.error || "Sorry, error occured when creating course");
-    }    
-}
-
-// a function that will update a student by id through PUT
-const updateCourse = async (req, res, next) => {
-    const userId = new ObjectId(req.params.id);
-
-    const response = await mongodb.getDb().db("homework").collection("course").replaceOne({_id: userId}, req.body);
-    console.log(response);
-    setHeaders(res);
-    if (response.modifiedCount > 0){
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Sorry, there was an error while updating the course.');
+        response.status(200).json(result);
+    } catch (error) {
+        response.setHeader("Content-Type", "text/plain")
+        response.status(404).send('Course Not Found');
     }
 };
 
-const deletecourse = async (req, res, next) => {
-    const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db("homework").collection("course").remove({_id: userId}, true); 
-    console.log(response);
-    setHeaders(res);
-    if (response.deletedCount > 0 ) {
-        res.status(200).send();
-    } else {
-        res.status(500).json(response.error || "Sorry, there was an error when you tried to delete this course.");
-    } 
-};
+// a function that will use POST 
+const createCourse = async (req, res, next) => {
+    // console.log(req.body);
+    try {
+        const course = new Course(req.body);
+        
+        try {
+            await course.save();  
+            console.log(course);         
+        } catch (error) {
+            setHeaders(res, contentText);
+            res.status(402).json(error);
+            return;
+        }
+
+        setHeaders(res);
+        res.status(201).json(course);    
+
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        res.status(500).send('Course Not Found');
+    }
+    
+}
+
+// a function that will update a student by id through PUT
+// const updateCourse = async (req, res, next) => {
+//     const userId = new ObjectId(req.params.id);
+
+//     const response = await mongodb.getDb().db("homework").collection("course").replaceOne({_id: userId}, req.body);
+//     console.log(response);
+//     setHeaders(res);
+//     if (response.modifiedCount > 0){
+//         res.status(204).send();
+//     } else {
+//         res.status(500).json(response.error || 'Sorry, there was an error while updating the course.');
+//     }
+// };
+
+// const deletecourse = async (req, res, next) => {
+//     const userId = new ObjectId(req.params.id);
+//     const response = await mongodb.getDb().db("homework").collection("course").remove({_id: userId}, true); 
+//     console.log(response);
+//     setHeaders(res);
+//     if (response.deletedCount > 0 ) {
+//         res.status(200).send();
+//     } else {
+//         res.status(500).json(response.error || "Sorry, there was an error when you tried to delete this course.");
+//     } 
+// };
 
 function setHeaders(res) {
     res.setHeader("content-type", 'application/json');
@@ -73,25 +89,5 @@ function setHeaders(res) {
 }
 
 module.exports = {
-    getAllCourses, getCourseById, createCourse, updateCourse, deletecourse, setHeaders
+    getAllCourses, getCourseById, createCourse, setHeaders
 }
-
-// exports.create = (req, res) => {
-//     if (!req.body.id) {
-//         res.status(400).send({message: 'Content can not be empty'});
-//         return;
-//     }
-
-// // create course 
-// const course = new Course({
-//     subject: req.body.subject,
-//     description: req.body.description,
-//     teacherName:  req.body.teacherName,
-//     currentGrade: req.body.currentGrade,
-//     assignment: req.body.notes, 
-//     dueDate: req.body.dueDate,
-//     favorite: req.body.favorite 
-
-// });
-// course.save()    
-// }
