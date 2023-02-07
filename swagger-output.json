@@ -1,0 +1,209 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "School API",
+    "description": "Documentation to get my contacts"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/courses": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/course/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/course": {
+      "post": {
+        "summary": "add a course to the db",
+        "description": "add a course to the db",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Add a Course",
+            "schema": {
+              "$ref": "#/definitions/course"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "402": {
+            "description": "Payment Required"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/students": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/student/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/student": {
+      "post": {
+        "summary": "add a student to the db",
+        "description": "add a student to the db",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Add a Student",
+            "schema": {
+              "$ref": "#/definitions/student"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "402": {
+            "description": "Payment Required"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "course": {
+      "type": "object",
+      "properties": {
+        "subject": {
+          "type": "string",
+          "example": "Math"
+        },
+        "description": {
+          "type": "string",
+          "example": "Subject Material"
+        },
+        "teacherName": {
+          "type": "string",
+          "example": "Mr/Ms Doe"
+        },
+        "currentGrade": {
+          "type": "string",
+          "example": "A"
+        },
+        "assignment": {
+          "type": "string",
+          "example": "What is the project?"
+        },
+        "dueDate": {
+          "type": "string",
+          "example": "01/01/2025"
+        }
+      }
+    },
+    "student": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Sarah"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "enrolled": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    }
+  },
+  "server": [
+    {
+      "url": "http:localhost3000",
+      "description": "This is my local server."
+    },
+    {
+      "url": "",
+      "description": "This is my render server."
+    }
+  ]
+}

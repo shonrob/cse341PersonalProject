@@ -1,7 +1,7 @@
 const { default: mongoose } = require('mongoose');
 const { create } = require('../models/course.js');
 // const {ObjectId} = require('bson');
-const ObjectId = require('mongoose').Types.ObjectId;
+const ObjectId = require('mongodb').ObjectId;
 
 
 const Course = require('../models/course.js');
@@ -16,7 +16,7 @@ async function getAllCourses (request, response) {
 }
 
 const getCourseById = async (request, response) => {
-    console.log(request.params.id);
+    // console.log(request.params.id);
     const courseId = new ObjectId(request.params.id);
     console.log(courseId);
     console.log(request.params.id);
