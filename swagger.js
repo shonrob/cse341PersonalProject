@@ -8,7 +8,7 @@ const doc = {
   },
   server: [
     {url: "http:localhost3000", description: "This is my local server."},
-    {url: "", description: "This is my render server."},
+    {url: "https://cse341project.onrender.com/", description: "This is my render server."},
   ],
   basePath: '/',  // by default: '/'
   schemes: ['http'],   // by default: ['http']
