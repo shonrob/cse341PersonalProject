@@ -6,12 +6,15 @@ const doc = {
     title: 'School API',        // by default: 'REST API'
     description: 'Documentation to get my contacts',  // by default: ''
   },
-  server: [
-    {url: "http:localhost3000", description: "This is my local server."},
-    {url: "https://cse341project.onrender.com/", description: "This is my render server."},
-  ],
-  basePath: '/',  // by default: '/'
-  schemes: ['http'],   // by default: ['http']
+  host: "",
+  // server: [
+  //   {url: "http:localhost3000", description: "This is my local server."},
+  //   {url: "https://cse341project.onrender.com/", description: "This is my render server."},
+  // ],
+  // basePath: '/',  // by default: '/'
+  basePath: "",
+  // schemes: ['http'],   // by default: ['http']
+  schemes: [],
   definitions: {
     course: {
       subject: "Math",

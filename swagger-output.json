@@ -5,11 +5,9 @@
     "title": "School API",
     "description": "Documentation to get my contacts"
   },
-  "host": "localhost:3000",
-  "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "host": "",
+  "basePath": "",
+  "schemes": [],
   "paths": {},
   "definitions": {
     "course": {
@@ -58,15 +56,5 @@
         }
       }
     }
-  },
-  "server": [
-    {
-      "url": "http:localhost3000",
-      "description": "This is my local server."
-    },
-    {
-      "url": "https://cse341project.onrender.com/",
-      "description": "This is my render server."
-    }
-  ]
+  }
 }
