@@ -10,6 +10,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const swaggerSpec = require('./swagger-output.json');
 
+// const Course = require('../models/course.js');
+// const Cat = mongoose.model('Cat', { name: String });
+// const swaggerSchema = m2s(Cat);
+
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use(express.json());
 app.use('/', require('./routes/course'));

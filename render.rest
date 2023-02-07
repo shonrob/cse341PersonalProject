@@ -1,0 +1,41 @@
+@courseId = 63dca1646fa9e321c98401c0
+
+@studentId = 63dca3466fa9e321c98401c3
+
+###
+GET https://cse341project.onrender.com
+
+###
+GET https://cse341project.onrender.com/courses
+
+###
+GET https://cse341project.onrender.com/course/{{courseId}}
+
+###
+GET https://cse341project.onrender.com/students
+
+###
+GET https://cse341project.onrender.com/student/{{studentId}}
+
+###
+POST https://cse341project.onrender.com/course HTTP/1.1
+Content-Type: application/json
+
+{
+    "subject": "Guitar II", 
+    "description": "Increase your Knowledge with your Guitar",
+    "teacherName": "Mr. Darcy",
+    "currentGrade": "C",
+    "assignment": "Guitar cords",
+    "dueDate": "01-15-2025"
+}
+
+### 
+POST https://cse341project.onrender.com/student HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Karen",
+    "lastName": "Johnson",
+    "enrolled": true
+}
