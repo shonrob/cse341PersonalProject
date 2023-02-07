@@ -8,7 +8,7 @@
     "start": "node server.js",
     "start-dev": "nodemon server.js",
     "swagger-autogen": "node ./swagger.js",
-    "build": "npm install && node swagger.js"
+    "build": "node swagger.js"
   },
   "repository": {
     "type": "git",
