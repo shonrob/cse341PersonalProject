@@ -18,8 +18,8 @@ async function getAllCourses (request, response) {
 const getCourseById = async (request, response) => {
     // console.log(request.params.id);
     const courseId = new ObjectId(request.params.id);
-    console.log(courseId);
-    console.log(request.params.id);
+    // console.log(courseId);
+    // console.log(request.params.id);
     try {
         const result = await Course.find({_id: courseId});
         response.setHeader("Content-Type", "application/json")
@@ -38,7 +38,7 @@ const createCourse = async (req, res, next) => {
         
         try {
             await course.save();  
-            console.log(course);         
+            // console.log(course);         
         } catch (error) {
             setHeaders(res, contentText);
             res.status(402).json(error);
@@ -53,33 +53,51 @@ const createCourse = async (req, res, next) => {
         res.status(500).send('Course Not Found');
     }
     
+};
+
+const updateCourse = async (req, res) => {
+
+    try {
+        const courseId = new ObjectId(req.params.id);
+
+        try {
+            const changeCourse = await Course.findByIdAndUpdate({_id: courseId}, req.body, { runValidators: true});
+
+            return res.status(201).json(changeCourse);
+            
+ 
+        } catch (error) {
+            setHeaders(res, contentText);
+            res.status(402).json(error);
+            return; 
+        }
+
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        res.status(500).send('Course Not Changed'); 
+    }
+
 }
 
-// a function that will update a student by id through PUT
-// const updateCourse = async (req, res, next) => {
-//     const userId = new ObjectId(req.params.id);
+const deleteCourse = async (req, res, next) =>  {
+    try {
+        const courseId = new ObjectId(req.params.id);
+        try {
+            const removedCourse = await Course.deleteOne({_id: courseId}, true);
+            return res.status(201).json(removedCourse);
+        } catch (error) {
+            setHeaders(res, contentText);
+            res.status(402).json(error);
+            return; 
+        }
 
-//     const response = await mongodb.getDb().db("homework").collection("course").replaceOne({_id: userId}, req.body);
-//     console.log(response);
-//     setHeaders(res);
-//     if (response.modifiedCount > 0){
-//         res.status(204).send();
-//     } else {
-//         res.status(500).json(response.error || 'Sorry, there was an error while updating the course.');
-//     }
-// };
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        res.status(500).send('Course dropped');  
+    }
 
-// const deletecourse = async (req, res, next) => {
-//     const userId = new ObjectId(req.params.id);
-//     const response = await mongodb.getDb().db("homework").collection("course").remove({_id: userId}, true); 
-//     console.log(response);
-//     setHeaders(res);
-//     if (response.deletedCount > 0 ) {
-//         res.status(200).send();
-//     } else {
-//         res.status(500).json(response.error || "Sorry, there was an error when you tried to delete this course.");
-//     } 
-// };
+
+}
 
 function setHeaders(res) {
     res.setHeader("content-type", 'application/json');
@@ -90,5 +108,5 @@ function setHeaders(res) {
 }
 
 module.exports = {
-    getAllCourses, getCourseById, createCourse, setHeaders
+    getAllCourses, getCourseById, createCourse, updateCourse, deleteCourse, setHeaders
 }

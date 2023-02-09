@@ -1,9 +1,9 @@
 const routes = require('express').Router();
-const studentModel = require('../controllers/student');
+const studentController = require('../controllers/student');
 // const app = express();
 
-routes.get('/students', studentModel.getAllStudents);
-routes.get('/student/:id', studentModel.getStudentById);
+routes.get('/students', studentController.getAllStudents);
+routes.get('/student/:id', studentController.getStudentById);
 
 routes.post('/student', 
 // #swagger.summary = 'Add a student to the db'        
@@ -11,23 +11,16 @@ routes.post('/student',
 /* #swagger.responses[201] = {description: 'OK'}}}*/
  /*#swagger.parameters['obj'] = 
  {in:'body',description: 'Add a Student', schema: { $ref:'#/definitions/student'}} */
-studentModel.createStudent);
+studentController.createStudent);
 
- routes.put('/:id', 
- // #swagger.summary = 'Change a studen in the database'        
-// #swagger.description = 'Change the student description'        
-/* #swagger.responses[201] = {description: 'OK'}}}*/
- /*#swagger.parameters['obj'] = 
- {in:'body',description: 'Change the student demographics', schema: { $ref:'#/definitions/student'}} */
- 
- courseModel);
+routes.put('/student/:id', studentController.updateStudent);
 
- routes.delete('/:id', 
-
- courseModel);
+routes.delete('/student/:id', 
 // DELETE
  // #swagger.summary = 'Deletes a student from the db based on ID.'
 // #swagger.description = 'Deletes a student from the db based on ID.'
 // #swagger.parameters['id'] = { description: 'Student Id' } 
 /* #swagger.responses[200] = {description: 'OK',}    }    */
+studentController.deleteStudent);
+
 module.exports = routes;
