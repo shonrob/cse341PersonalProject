@@ -34,8 +34,7 @@ const getCourseById = async (request, response) => {
 const createCourse = async (req, res, next) => {
     // console.log(req.body);
     try {
-        const course = new Course(req.body);
-        
+        const course = new Course(req.body);        
         try {
             await course.save();  
             // console.log(course);         
@@ -51,21 +50,15 @@ const createCourse = async (req, res, next) => {
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         res.status(500).send('Course Not Found');
-    }
-    
+    }    
 };
-
 const updateCourse = async (req, res) => {
-
     try {
         const courseId = new ObjectId(req.params.id);
 
         try {
             const changeCourse = await Course.findByIdAndUpdate({_id: courseId}, req.body, { runValidators: true});
-
-            return res.status(201).json(changeCourse);
-            
- 
+            return res.status(201).json(changeCourse); 
         } catch (error) {
             setHeaders(res, contentText);
             res.status(402).json(error);

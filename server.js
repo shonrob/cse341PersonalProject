@@ -16,8 +16,7 @@ const swaggerSpec = require('./swagger-output.json');
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use(express.json());
-app.use('/', require('./routes/course'));
-app.use('/', require('./routes/student'));
+app.use('/', require('./routes/index.js'));
 
 
 

@@ -12,13 +12,14 @@ const mongoose = require('mongoose');
                 type: String, required: true
             },
             currentGrade: {
-                type: String, required: true, enum:{values: ["A", "B", "C", "D", "F"]}, message: "{VALUE} is not allowed"
+                type: String, required: true
+                // enum:{values: ["A", "B", "C", "D", "F"]}, message: "{VALUE} is not allowed"
             },
             assignment: {
                 type: String, required: true
             },
             dueDate: {
-                type: Date, required: true
+                type: String, required: true
             }
         });
 

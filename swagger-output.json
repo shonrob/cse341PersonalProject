@@ -9,7 +9,7 @@
   "basePath": "",
   "schemes": [],
   "paths": {
-    "/courses": {
+    "/course/all": {
       "get": {
         "description": "",
         "produces": [
@@ -47,7 +47,8 @@
         }
       },
       "put": {
-        "description": "",
+        "summary": "Change a course to the database",
+        "description": "What does the course cover",
         "produces": [
           "text/plain"
         ],
@@ -57,11 +58,22 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Add a Course",
+            "schema": {
+              "$ref": "#/definitions/course"
+            }
           }
         ],
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "204": {
+            "description": "OK"
           },
           "402": {
             "description": "Payment Required"
@@ -102,7 +114,7 @@
         }
       }
     },
-    "/course": {
+    "/course/": {
       "post": {
         "summary": "Add a course to the database",
         "description": "What does the course cover",
@@ -132,7 +144,7 @@
         }
       }
     },
-    "/students": {
+    "/student/all": {
       "get": {
         "description": "",
         "produces": [
@@ -225,7 +237,7 @@
         }
       }
     },
-    "/student": {
+    "/student/": {
       "post": {
         "summary": "Add a student to the db",
         "description": "add a student to the db",
