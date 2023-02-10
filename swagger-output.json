@@ -69,9 +69,6 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
           "204": {
             "description": "OK"
           },
@@ -101,9 +98,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "201": {
-            "description": "Created"
           },
           "402": {
             "description": "Payment Required"
@@ -204,9 +198,6 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
           "204": {
             "description": "OK"
           },

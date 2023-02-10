@@ -57,7 +57,7 @@ const updateStudent = async (req, res) => {
         try {
             const changeStudent = await Student.findByIdAndUpdate({_id: studentId}, req.body, { runValidators: true});
 
-            return res.status(201).json(changeStudent);
+            return res.status(204).json(changeStudent);
             
  
         } catch (error) {
@@ -77,7 +77,7 @@ const deleteStudent = async (req, res, next) =>  {
     try {
         const studentId = new ObjectId(req.params.id);
         try {
-            const removedStudent = await Student.deleteOne({_id: studentId}, true);
+            const removedStudent = await Student.deleteOne({_id: studentId});
             return res.status(201).json(removedStudent);
         } catch (error) {
             setHeaders(res, contentText);

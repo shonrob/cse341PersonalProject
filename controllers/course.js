@@ -95,7 +95,7 @@ const deleteCourse = async (req, res, next) =>  {
     } catch (error) {
         console.log('Error 2, OOPS!');
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send('Course Not dropped');  
+        res.status(500).send('Course dropped');  
     }
 
 
