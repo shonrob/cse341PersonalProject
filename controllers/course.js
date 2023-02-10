@@ -49,7 +49,7 @@ const createCourse = async (req, res, next) => {
 
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send('Course Not Found');
+        res.status(500).send('Course Not Created');
     }    
 };
 const updateCourse = async (req, res) => {
@@ -95,7 +95,7 @@ const deleteCourse = async (req, res, next) =>  {
     } catch (error) {
         console.log('Error 2, OOPS!');
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send('Course dropped');  
+        res.status(500).send('Course Not dropped');  
     }
 
 

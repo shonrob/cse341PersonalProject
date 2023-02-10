@@ -68,7 +68,7 @@ const updateStudent = async (req, res) => {
 
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send('student Not Changed'); 
+        res.status(500).send('Student Not Changed'); 
     }
 
 }
@@ -87,7 +87,7 @@ const deleteStudent = async (req, res, next) =>  {
 
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send('Student dropped');  
+        res.status(500).send('Student Not dropped');  
     }
 
 
