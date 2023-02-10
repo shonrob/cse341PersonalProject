@@ -5,6 +5,7 @@ const courseController = require('../controllers/course');
 routes.get('/all', courseController.getAllCourses);
 routes.get('/:id', courseController.getCourseById);
 
+// CREATE COURSE 
 routes.post('/',
 // #swagger.summary = 'Add a course to the database'
 // #swagger.description = 'What does the course cover'

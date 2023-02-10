@@ -182,7 +182,8 @@
         }
       },
       "put": {
-        "description": "",
+        "summary": "Change a student to the database",
+        "description": "What does the student cover",
         "produces": [
           "text/plain"
         ],
@@ -192,11 +193,22 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Add a student",
+            "schema": {
+              "$ref": "#/definitions/student"
+            }
           }
         ],
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "204": {
+            "description": "OK"
           },
           "402": {
             "description": "Payment Required"

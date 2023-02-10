@@ -5,6 +5,7 @@ const studentController = require('../controllers/student');
 routes.get('/all', studentController.getAllStudents);
 routes.get('/:id', studentController.getStudentById);
 
+// CREATE STUDENT 
 routes.post('/', 
 // #swagger.summary = 'Add a student to the db'        
 // #swagger.description = 'add a student to the db'        
@@ -13,8 +14,16 @@ routes.post('/',
  {in:'body',description: 'Add a Student', schema: { $ref:'#/definitions/student'}} */
 studentController.createStudent);
 
-routes.put('/:id', studentController.updateStudent);
+// CHANGE STUDENT 
+routes.put('/:id', 
+ // #swagger.summary = 'Change a student to the database'
+// #swagger.description = 'What does the student cover'
+/* #swagger.responses[204] = {description: 'OK'}}}*/
+ /*#swagger.parameters['obj'] = 
+ {in:'body',description: 'Add a student', schema: { $ref:'#/definitions/student'}} */
+ studentController.updateStudent);
 
+// DELETE STUDENT 
 routes.delete('/:id', 
 // DELETE
  // #swagger.summary = 'Deletes a student from the db based on ID.'

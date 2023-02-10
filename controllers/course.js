@@ -55,17 +55,21 @@ const createCourse = async (req, res, next) => {
 const updateCourse = async (req, res) => {
     try {
         const courseId = new ObjectId(req.params.id);
-
+        // console.log("1 try");
         try {
             const changeCourse = await Course.findByIdAndUpdate({_id: courseId}, req.body, { runValidators: true});
-            return res.status(201).json(changeCourse); 
+            // console.log("try 2")
+            console.log(changeCourse);
+            return res.status(204).json(changeCourse); 
         } catch (error) {
+            // console.log("uh oh error 1");
             setHeaders(res, contentText);
             res.status(402).json(error);
             return; 
         }
 
     } catch (error) {
+        // console.log("error 2, try again");
         res.setHeader("Content-Type", "text/plain")
         res.status(500).send('Course Not Changed'); 
     }
@@ -75,18 +79,23 @@ const updateCourse = async (req, res) => {
 const deleteCourse = async (req, res, next) =>  {
     try {
         const courseId = new ObjectId(req.params.id);
+        console.log("try1");
         try {
-            const removedCourse = await Course.deleteOne({_id: courseId}, true);
-            return res.status(201).json(removedCourse);
+            const removedCourse = await Course.deleteOne({_id: courseId});
+            console.log("2Try");
+            console.log(removedCourse);
+            return res.status(200).json(removedCourse);
         } catch (error) {
+            console.log(Error1);
             setHeaders(res, contentText);
             res.status(402).json(error);
             return; 
         }
 
     } catch (error) {
+        console.log('Error 2, OOPS!');
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send('Course dropped');  
+        res.status(500).send('Course Not dropped');  
     }
 
 
