@@ -15,5 +15,13 @@ const mongoose = require('mongoose');
             }
         });
 
+// const addStudentExample =
+//     {
+//         firstName: "Sarah",
+//         lastName: "Doe",
+//         enrolled: true
+
+//     }
+
 module.exports = mongoose.model("student", studentSchema, 'student'); 
 

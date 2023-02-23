@@ -23,4 +23,14 @@ const mongoose = require('mongoose');
             }
         });
 
+// const addCourseExample = 
+//         {
+//             subject: "Math",
+//             description: "Subject Material",
+//             teacherName: "Mr/Ms Doe",
+//             currentGrade: "A",
+//             assignment: "What is the project?", 
+//             dueDate: "01/01/2025"
+//         }
+
 module.exports = mongoose.model("course", courseSchema, 'course');
