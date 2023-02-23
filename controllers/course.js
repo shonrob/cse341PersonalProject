@@ -32,7 +32,7 @@ const getCourseById = async (request, response) => {
 
 // a function that will use POST 
 const createCourse = async (req, res, next) => {
-    if(req.oidc.isAuthenticated() ){    
+    // if(req.oidc.isAuthenticated() ){    
     // console.log(req.body);
     try {
         const course = new Course(req.body);        
@@ -52,13 +52,13 @@ const createCourse = async (req, res, next) => {
         res.setHeader("Content-Type", "text/plain")
         res.status(500).send('Course Not Created');
     }
-    }else {
-    res.setHeader("Content-Type", "text/plain")
-    res.status(400).send('Not Logged In'); 
-}    
+//     }else {
+//     res.setHeader("Content-Type", "text/plain")
+//     res.status(400).send('Not Logged In'); 
+// }    
 };
 const updateCourse = async (req, res) => {
-    if(req.oidc.isAuthenticated() ){
+    // if(req.oidc.isAuthenticated() ){
     try {
         const courseId = new ObjectId(req.params.id);
         // console.log("1 try");
@@ -79,15 +79,14 @@ const updateCourse = async (req, res) => {
         res.setHeader("Content-Type", "text/plain")
         res.status(500).send('Course Not Changed'); 
     }
-    }else {
-    res.setHeader("Content-Type", "text/plain")
-    res.status(403).send('Not Logged In'); 
-}
-
+//     }else {
+//     res.setHeader("Content-Type", "text/plain")
+//     res.status(403).send('Not Logged In'); 
+// }
 }
 
 const deleteCourse = async (req, res, next) =>  {
-    if(req.oidc.isAuthenticated() ){
+    // if(req.oidc.isAuthenticated() ){
     try {
         const courseId = new ObjectId(req.params.id);
         console.log("try1");
@@ -108,11 +107,10 @@ const deleteCourse = async (req, res, next) =>  {
         res.setHeader("Content-Type", "text/plain")
         res.status(500).send('Course Not dropped');  
     }
-    }else {
-    res.setHeader("Content-Type", "text/plain")
-    res.status(403).send('Not Logged In'); 
-}
-
+//     }else {
+//     res.setHeader("Content-Type", "text/plain")
+//     res.status(403).send('Not Logged In'); 
+// }
 }
 
 function setHeaders(res) {

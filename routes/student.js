@@ -1,12 +1,13 @@
 const routes = require('express').Router();
 const studentController = require('../controllers/student');
+const middlewareIsAuth = require('../middleware/isAuth');
 // const app = express();
 
 routes.get('/all', studentController.getAllStudents);
 routes.get('/:id', studentController.getStudentById);
 
 // CREATE STUDENT 
-routes.post('/', 
+routes.post('/', middlewareIsAuth.isAuthorized,
 // #swagger.summary = 'Add a student to the db'        
 // #swagger.description = 'add a student to the db'        
 /* #swagger.responses[201] = {description: 'OK'}}}*/
@@ -15,7 +16,7 @@ routes.post('/',
 studentController.createStudent);
 
 // CHANGE STUDENT 
-routes.put('/:id', 
+routes.put('/:id', middlewareIsAuth.isAuthorized,
  // #swagger.summary = 'Change a student to the database'
 // #swagger.description = 'What does the student cover'
 /* #swagger.responses[204] = {description: 'OK'}}}*/
@@ -24,7 +25,7 @@ routes.put('/:id',
  studentController.updateStudent);
 
 // DELETE STUDENT 
-routes.delete('/:id', 
+routes.delete('/:id', middlewareIsAuth.isAuthorized,
 // DELETE
  // #swagger.summary = 'Deletes a student from the db based on ID.'
 // #swagger.description = 'Deletes a student from the db based on ID.'
