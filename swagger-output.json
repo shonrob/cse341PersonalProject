@@ -72,8 +72,11 @@
           "204": {
             "description": "OK"
           },
-          "402": {
-            "description": "Payment Required"
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -99,8 +102,11 @@
           "200": {
             "description": "OK"
           },
-          "402": {
-            "description": "Payment Required"
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -128,6 +134,9 @@
         "responses": {
           "201": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "402": {
             "description": "Payment Required"
@@ -201,8 +210,11 @@
           "204": {
             "description": "OK"
           },
-          "402": {
-            "description": "Payment Required"
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -231,8 +243,11 @@
           "201": {
             "description": "Created"
           },
-          "402": {
-            "description": "Payment Required"
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -261,8 +276,11 @@
           "201": {
             "description": "OK"
           },
-          "402": {
-            "description": "Payment Required"
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
